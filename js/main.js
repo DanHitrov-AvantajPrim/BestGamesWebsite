@@ -267,13 +267,22 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for animation
-document.addEventListener('DOMContentLoaded', () => {
+// Observe elements for animation - called after content is loaded
+function setupAnimations() {
     const animatedElements = document.querySelectorAll('.game-card, .category-card, .platform-card');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        observer.observe(el);
-    });
+    if (animatedElements.length > 0) {
+        animatedElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            observer.observe(el);
+        });
+    }
+}
+
+// Setup animations on page load and after dynamic content loads
+document.addEventListener('DOMContentLoaded', () => {
+    setupAnimations();
+    // Re-run after a short delay to catch dynamically loaded content
+    setTimeout(setupAnimations, 100);
 });

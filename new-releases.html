@@ -119,8 +119,14 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const container = document.getElementById('games-container');
-            const games = getLatestGames();
-            container.innerHTML = games.map(game => createGameCard(game)).join('');
+            if (container) {
+                const games = getLatestGames();
+                if (games && games.length > 0) {
+                    container.innerHTML = games.map(game => createGameCard(game)).join('');
+                } else {
+                    container.innerHTML = '<div class="no-results"><div class="no-results-icon">😢</div><h3>No games found</h3></div>';
+                }
+            }
         });
     </script>
 </body>
