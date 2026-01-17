@@ -58,10 +58,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Create game card HTML
 function createGameCard(game) {
+    // Try to use real image, fallback to gradient
+    const imagePath = `images/games/game-${game.id}.jpg`;
+    const fallbackImagePath = `images/games/game-${game.id}.png`;
+    
     return `
         <div class="game-card">
             <div class="game-card-image" style="background: linear-gradient(135deg, ${getRandomGradient()});">
-                <div style="display: flex; align-items: center; justify-content: center; height: 100%; font-size: 48px;">
+                <img 
+                    src="${imagePath}" 
+                    alt="${game.title}"
+                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    style="width: 100%; height: 100%; object-fit: cover; display: block;"
+                />
+                <div class="game-card-fallback" style="display: none; align-items: center; justify-content: center; height: 100%; font-size: 48px; position: absolute; top: 0; left: 0; right: 0; bottom: 0;">
                     ${getGameIcon(game.category)}
                 </div>
             </div>
