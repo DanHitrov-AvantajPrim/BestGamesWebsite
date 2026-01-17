@@ -60,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function() {
 function createGameCard(game) {
     // Try to use real image, fallback to gradient
     const imagePath = `images/games/game-${game.id}.jpg`;
-    const fallbackImagePath = `images/games/game-${game.id}.png`;
     
     return `
         <div class="game-card">
@@ -68,7 +67,7 @@ function createGameCard(game) {
                 <img 
                     src="${imagePath}" 
                     alt="${game.title}"
-                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                    class="game-image"
                     style="width: 100%; height: 100%; object-fit: cover; display: block;"
                 />
                 <div class="game-card-fallback" style="display: none; align-items: center; justify-content: center; height: 100%; font-size: 48px; position: absolute; top: 0; left: 0; right: 0; bottom: 0;">
@@ -295,4 +294,23 @@ document.addEventListener('DOMContentLoaded', () => {
     setupAnimations();
     // Re-run after a short delay to catch dynamically loaded content
     setTimeout(setupAnimations, 100);
+    
+    // Setup image error handlers
+    setupImageErrorHandlers();
 });
+
+// Handle image loading errors and show fallback icons
+function setupImageErrorHandlers() {
+    setTimeout(() => {
+        const images = document.querySelectorAll('.game-image');
+        images.forEach(img => {
+            img.addEventListener('error', function() {
+                this.style.display = 'none';
+                const fallback = this.nextElementSibling;
+                if (fallback && fallback.classList.contains('game-card-fallback')) {
+                    fallback.style.display = 'flex';
+                }
+            });
+        });
+    }, 100);
+}
