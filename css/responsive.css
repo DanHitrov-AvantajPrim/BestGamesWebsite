@@ -1,0 +1,256 @@
+/* Responsive Styles */
+
+/* Tablets and below */
+@media (max-width: 992px) {
+    .navbar .container {
+        flex-wrap: wrap;
+    }
+
+    .mobile-menu-toggle {
+        display: flex;
+        order: 3;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        order: 4;
+        gap: 0;
+        padding: 20px 0;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links a {
+        display: block;
+        padding: 15px 20px;
+    }
+
+    .dropdown-menu {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        background: rgba(255, 255, 255, 0.05);
+        margin-top: 10px;
+        display: none;
+    }
+
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+
+    .search-container {
+        width: 100%;
+        order: 2;
+        margin-top: 15px;
+    }
+
+    #search-input {
+        flex: 1;
+        width: 100%;
+    }
+
+    .hero {
+        height: 500px;
+    }
+
+    .hero-title {
+        font-size: 42px;
+    }
+
+    .hero-subtitle {
+        font-size: 20px;
+    }
+
+    .section-title {
+        font-size: 36px;
+    }
+
+    .games-grid {
+        grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+        gap: 20px;
+    }
+
+    .categories-grid {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+    }
+}
+
+/* Mobile devices */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+
+    section {
+        padding: 50px 0;
+    }
+
+    .hero {
+        height: 400px;
+    }
+
+    .hero-title {
+        font-size: 32px;
+    }
+
+    .hero-subtitle {
+        font-size: 16px;
+        margin-bottom: 30px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+
+    .section-title {
+        font-size: 28px;
+        margin-bottom: 30px;
+    }
+
+    .games-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .categories-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .category-card {
+        padding: 30px 20px;
+    }
+
+    .platforms-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .platform-card {
+        padding: 30px 20px;
+    }
+
+    .platform-icon {
+        font-size: 48px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .filter-controls {
+        flex-direction: column;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .page-header {
+        padding: 50px 0;
+    }
+
+    .page-header h1 {
+        font-size: 32px;
+    }
+
+    .page-header p {
+        font-size: 16px;
+    }
+}
+
+/* Small mobile devices */
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 18px;
+    }
+
+    .logo-icon {
+        font-size: 24px;
+    }
+
+    .hero-title {
+        font-size: 24px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .game-card-content {
+        padding: 15px;
+    }
+
+    .game-card-title {
+        font-size: 18px;
+    }
+
+    .category-icon {
+        font-size: 36px;
+    }
+
+    .category-card h3 {
+        font-size: 20px;
+    }
+}
+
+/* Landscape mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        height: 350px;
+    }
+
+    .hero-title {
+        font-size: 28px;
+    }
+
+    .hero-subtitle {
+        font-size: 14px;
+        margin-bottom: 20px;
+    }
+}
+
+/* Print styles */
+@media print {
+    header,
+    footer,
+    .hero,
+    .search-container,
+    .filter-section {
+        display: none;
+    }
+
+    body {
+        background: white;
+        color: black;
+    }
+
+    .game-card,
+    .category-card,
+    .platform-card {
+        break-inside: avoid;
+    }
+}

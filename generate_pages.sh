@@ -1,0 +1,132 @@
+#!/bin/bash
+
+# Action page
+cat > action.html << 'HTMLEOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Browse action games from Steam. Fast-paced, adrenaline-pumping experiences.">
+    <title>Action Games - BestGames</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <span class="logo-icon">🎮</span>
+                        <span class="logo-text">BestGames</span>
+                    </a>
+                </div>
+                <button class="mobile-menu-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Categories</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="action.html" class="active">Action</a></li>
+                            <li><a href="rpg.html">RPG</a></li>
+                            <li><a href="strategy.html">Strategy</a></li>
+                            <li><a href="adventure.html">Adventure</a></li>
+                            <li><a href="simulation.html">Simulation</a></li>
+                            <li><a href="indie.html">Indie</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">Platforms</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pc.html">PC</a></li>
+                            <li><a href="vr.html">VR</a></li>
+                            <li><a href="mac.html">Mac</a></li>
+                            <li><a href="linux.html">Linux</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="browse.html">Browse All</a></li>
+                    <li><a href="top-rated.html">Top Rated</a></li>
+                    <li><a href="new-releases.html">New Releases</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Search games...">
+                    <button id="search-btn" aria-label="Search">🔍</button>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="page-header">
+            <h1>⚔️ Action Games</h1>
+            <p>Fast-paced, adrenaline-pumping gaming experiences</p>
+        </div>
+
+        <section>
+            <div class="container">
+                <div id="games-container" class="games-grid">
+                    <div class="loading">Loading action games...</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>BestGames</h3>
+                    <p>Your ultimate guide to finding the best games on Steam. Discover, explore, and play.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="browse.html">Browse All</a></li>
+                        <li><a href="top-rated.html">Top Rated</a></li>
+                        <li><a href="new-releases.html">New Releases</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="action.html">Action</a></li>
+                        <li><a href="rpg.html">RPG</a></li>
+                        <li><a href="strategy.html">Strategy</a></li>
+                        <li><a href="adventure.html">Adventure</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BestGames. All rights reserved. Game data from Steam.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/games-data.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadGamesByCategory('action');
+        });
+    </script>
+</body>
+</html>
+HTMLEOF
+
+echo "Created action.html"
